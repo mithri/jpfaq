@@ -38,9 +38,19 @@ class Tx_Jpfaq_Controller_QuestionController extends Tx_Extbase_MVC_Controller_A
      * questionRepository
      *
      * @var Tx_Jpfaq_Domain_Repository_QuestionRepository
+     * @inject
      */
     protected $questionRepository;
+    
+    /**
+     * categoryRepository
+     *
+     * @var Tx_Jpfaq_Domain_Repository_CategoryRepository
+     * @inject
+     */
+    protected $categoryRepository;
 
+    
     /**
      * Initializes the current action
      *
@@ -48,9 +58,6 @@ class Tx_Jpfaq_Controller_QuestionController extends Tx_Extbase_MVC_Controller_A
      */
     protected function initializeAction()
     {
-        $this->questionRepository = t3lib_div::makeInstance('Tx_Jpfaq_Domain_Repository_QuestionRepository');
-        $this->categoryRepository = t3lib_div::makeInstance('Tx_Jpfaq_Domain_Repository_CategoryRepository');
-
 
         // stylesheets includes in header
         $includes = '';
