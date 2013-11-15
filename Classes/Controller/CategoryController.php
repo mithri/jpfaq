@@ -37,18 +37,10 @@ class Tx_Jpfaq_Controller_CategoryController extends Tx_Extbase_MVC_Controller_A
 	 * categoryRepository
 	 * 
 	 * @var Tx_Jpfaq_Domain_Repository_CategoryRepository
+         * @inject
 	 */
 	protected $categoryRepository;
 
-	/**
-	 * Initializes the current action
-	 *
-	 * @return void
-	 */
-	protected function initializeAction() {
-		$this->categoryRepository = t3lib_div::makeInstance('Tx_Jpfaq_Domain_Repository_CategoryRepository');
-	}
-		
 	/**
 	 * Displays a single Category
 	 *

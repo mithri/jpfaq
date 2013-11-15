@@ -40,6 +40,13 @@ class Tx_Jpfaq_Controller_QuestionController extends Tx_Extbase_MVC_Controller_A
      * @var Tx_Jpfaq_Domain_Repository_QuestionRepository
      */
     protected $questionRepository;
+    
+    /**
+	 * categoryRepository
+	 * 
+	 * @var Tx_Jpfaq_Domain_Repository_CategoryRepository
+	 */
+    protected $categoryRepository;
 
     /**
      * Initializes the current action
@@ -48,10 +55,6 @@ class Tx_Jpfaq_Controller_QuestionController extends Tx_Extbase_MVC_Controller_A
      */
     protected function initializeAction()
     {
-        $this->questionRepository = t3lib_div::makeInstance('Tx_Jpfaq_Domain_Repository_QuestionRepository');
-        $this->categoryRepository = t3lib_div::makeInstance('Tx_Jpfaq_Domain_Repository_CategoryRepository');
-
-
         // stylesheets includes in header
         $includes = '';
         foreach ($this->settings["includeCss"] as $cssFile) {
@@ -123,6 +126,7 @@ class Tx_Jpfaq_Controller_QuestionController extends Tx_Extbase_MVC_Controller_A
         $this->view->assign('questions', $questions);
         $this->view->assign('category', $this->categoryRepository->getCategoryNameForCategoryUid($selectedCategory));
         $this->view->assign('categoryUid', $selectedCategory);
+        $this->view->assign(getCategory);
 
         //set fold / unfold js
         $js = <<<HEREDOC
